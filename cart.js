@@ -3,11 +3,30 @@ let content = document.getElementById('content');
 
 let basket = JSON.parse(localStorage.getItem("data")) || [];
 
-let generateContent = () => {
+let calculation = () => {
+    let cartIcon = document.getElementById("cart__num");
+    cartIcon.innerHTML = basket.map((x)=> x.item).reduce((x,y) => x + y, 0);
+};
 
+calculation();
+
+let generateContent = () => {
+    
+    let maxval = document.getElementById('maksymalna').value;
+    let maxymal = Math.max.apply(Math, contentData.map(m => m.price)); // bajerancka mapa 
+    if (maxval === '') //szuka wszystkich priców i zwraca największy jako maxymal
+    {                    // a tutaj jak nie ma wartości to ustawia największą tą maxymal
+        document.querySelector('input[name="maksymalna"]').value = maxymal;
+        document.querySelector('input[name="maksymalna"]').max = maxymal;
+    };
+   
     return (content.innerHTML = contentData.map((x)=>{
+        let maxval = document.getElementById('maksymalna').value;
+        let minval = document.getElementById('minimalna').value;
         let {id, desc, name, price, img} = x;
         let search = basket.find((x) => x.id === id) || [];
+        if(x.price >= minval && x.price <= maxval)
+        
         return `
         <div id:Item-${id} name="karta" class="content__card">
         <img src="${img}" class="cardPhoto" style="min-height:150px;"></img>
@@ -29,11 +48,7 @@ let generateContent = () => {
     }).join(""));
 };
 
-
 generateContent()
-
-
-
 
 let plus = (id) => {
     let selectedItem = id;
@@ -45,6 +60,7 @@ let plus = (id) => {
         });
     }
     else {search.item += 1;}
+    
     update(selectedItem.id);
     localStorage.setItem("data", JSON.stringify(basket));
 };
@@ -55,13 +71,17 @@ let minus = (id) => {
     if (search.item === undefined) return;
     else if (search.item === 0) return;
         else { search.item -= 1;}
+    
     update(selectedItem.id);
     localStorage.setItem("data", JSON.stringify(basket));
 };
-let update = (id) => {
 
+let update = (id) => {
     let search = basket.find((x)=> x.id === id);
-    console.log(search.item);
     document.getElementById(id).innerHTML = search.item;
+    calculation()
 };
+
+
+
 
