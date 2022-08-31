@@ -19,7 +19,7 @@ let generateContent = () => {
         document.querySelector('input[name="maksymalna"]').value = maxymal;
         document.querySelector('input[name="maksymalna"]').max = maxymal;
     };
-   
+    
     return (content.innerHTML = contentData.map((x)=>{
         let maxval = document.getElementById('maksymalna').value;
         let minval = document.getElementById('minimalna').value;
@@ -32,16 +32,16 @@ let generateContent = () => {
         <img src="${img}" class="cardPhoto" ></img>
         <div class="cardName">${name}</div>
         <div class="cardDesc">${desc}</div>    
-                     
+        
         <div class="cardPrice">
-            Price: ${price}$
+        Price: ${price}$
         </div> 
         <div class="cardbtn"> 
-            <button onclick="plus(${id})" id="plus" class="content__card__cart">+</button>
-                <div id=${id} class="content__card__cart quant">
-                    ${search.item === undefined? 0 : search.item}
-                </div> 
-            <button onclick="minus(${id})" id="minus" class="content__card__cart minus">-</button> 
+        <button onclick="plus(${id})" id="plus" class="content__card__cart">+</button>
+        <div id=${id} class="content__card__cart quant">
+        ${search.item === undefined? 0 : search.item}
+        </div> 
+        <button onclick="minus(${id})" id="minus" class="content__card__cart minus">-</button> 
         </div>
         </div>
         `;
@@ -70,7 +70,7 @@ let minus = (id) => {
     let search = basket.find((x) => x.id === selectedItem.id);
     if (search.item === undefined) return;
     else if (search.item === 0) return;
-        else { search.item -= 1;}
+    else { search.item -= 1;}
     
     update(selectedItem.id);
     localStorage.setItem("data", JSON.stringify(basket));
@@ -79,7 +79,7 @@ let minus = (id) => {
 let update = (id) => {
     let search = basket.find((x)=> x.id === id);
     document.getElementById(id).innerHTML = search.item;
-    calculation()
+    calculation();
 };
 
 

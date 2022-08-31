@@ -3,6 +3,7 @@ body{
     width: 100%;
     height: 100%;
     background-color: rgb(235, 235, 235);
+    overflow: auto
 }
 html{
     width: 100%;
@@ -15,15 +16,22 @@ html{
     font-size: large;
 }
 header{
-    display: grid;
+    position: fixed;
+    top: 10px;
+    right:0;
+    left: 0;
+    z-index: 100;
+        margin: auto;
+    /* background-color: white;
+    border:solid 1px black; */
+}
+.header__in{
     grid-template-columns: 1fr 8fr 1fr;
+    display: grid;
     grid-column: auto;
-    position: relative;
-    width: calc(100%-64px);
-    margin: auto;    
-    max-width: 1154px;
+    max-width:1154px;
+    margin: auto;
     height: auto;
-    margin-top: 10px;
 }
 .searchform {
     justify-self: center;
@@ -67,7 +75,7 @@ header{
     margin: auto;
     border-radius: 100%;
     grid-column-start: 3;
-  
+    border:solid 1px black
 }
 .cart > svg {
     width: 60%;
@@ -85,13 +93,14 @@ header{
     border-radius: 1rem;
     background-color: red;
     color:white;
+    border: solid 1px black
 }
 nav{
-display: flex;
+    display: flex;
     position: relative;
     width: 100%;
     max-width: 1154px;
-    margin: 10px auto;
+    margin: 4rem auto 10px;
     justify-content: center;
 }
 .navbtn {
@@ -137,6 +146,7 @@ display: flex;
     .pricing{
         position:relative;
         float: left;
+        min-width: 194px;
     }  
     .pricing > h1 {
         padding-top:1rem;
@@ -150,7 +160,7 @@ display: flex;
     width: 3rem;
     height:1.5rem;
     padding: 5px;
-    margin: 1px 0.5rem;
+    margin: 1px 0.2rem;
     margin-left: 0px;
     border-radius: 1rem;
     display: inline-block;
@@ -181,12 +191,20 @@ input[type=number] {
     display: grid;
     grid-template-rows: 3fr 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr;
+    min-width: 250px;
+    min-height: 325px;
+
 }
 
 .content__card:hover{
+    animation: hovering;
+    animation-duration: 0.5s;
     background-color: aliceblue;
-    transform: scale(1.01);
-    z-index: 1000;
+}
+@keyframes hovering {
+    0%{scale:1}
+    50%{scale:1.01}
+    100%{scale:1}
 }
 .cardbtn{
     position: relative;
@@ -260,3 +278,47 @@ footer {
     text-align: center;
     font-size: x-small;
 }
+@media screen and (max-width:992px)
+{
+.content 
+    {grid-template-columns: 1fr 1fr; }
+.pricing
+    {min-width: 130px;
+    max-width: 148px;}
+    }
+
+
+@media screen and (max-width:768px) 
+{
+.searchbar {
+        width: 100%;
+    }
+.header__in {
+    grid-template-columns:6fr 1fr;}
+.searchform{
+    grid-column-start: 1;
+    grid-column-end: 1;
+}
+.cart {
+    grid-column-start: 2;
+    grid-column-end: 2;
+}
+header {margin-right:5px}
+.body
+    {width: 100vw;
+    height: 100vh;}
+.content 
+    {width: 100%;
+    padding: 0;}
+.content__card
+    {min-width: 100px;
+    min-height: 150px; 
+    max-height: 350px;
+    grid-template-rows: 1fr 1fr 1fr 0.5fr;}
+.menu
+    {display: none;}
+.site 
+    {width: 100vw;
+    margin: auto;}
+}
+

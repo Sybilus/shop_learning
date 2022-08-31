@@ -12,31 +12,37 @@
 <body>
 
     <div class="sidecart" id="sidecart">
+        <div class="sidecart__left" onclick="carttoggle()">left side</div>
+        <div class="sidecart__right">
         <div class="sidecart__top">
-            <i class="fa-solid fa-circle-xmark  cart__backbtn" onclick="carttoggle()"></i>
+            <div class="cart__backbtn" onclick="carttoggle()"><i class="fa-solid fa-circle-xmark" ></i></div>
+
             <div class="cart__title">Your Cart</div>
+
             <a class="go__cart__page" href="/html/checkout.html"><i class="fa-solid fa-cart-shopping"></i><i class="fa-solid fa-arrow-right"></i></a>
         </div>
-
-        <div class="sidecart__content"></div>
+        <div id="price__sum" class="price__sum"></div>
+        <div id="sidecart__content" class="sidecart__content"></div>
+        </div>
     </div>
 
-    <header>
+    <header id="header">
+        <div class="header__in">
         <form action="#" class="searchform">
             <input type="search" name="searchbar" id="search" class="searchbar" placeholder="Search"></input>
             <button type="submit" id="searchbtn" class="searchbtn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                  </svg>
+                </svg>
             </button>
         </form>
             
-            <div id="cart" class="cart" onclick="carttoggle()"><div id="cart__num" class="cart__num"></div>
+            <div id="cart" class="cart" onclick="carttoggle(), generateCart(), totalAmount()"><div id="cart__num" class="cart__num"></div>
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
                 <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
             </svg>
         </div>
-
+        </div>
     </header>
     <nav>
         <button class="navbtn">gaming</button>
@@ -63,9 +69,24 @@
     </footer>
 
     
+<script>
+    window.onscroll = function () { scrollFunction() };
 
+    function scrollFunction() {
+        if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
+            document.getElementById("header").style.backgroundColor = "white";
+            document.getElementById("header").style.borderTop = "solid 1px black";
+            document.getElementById("header").style.borderBottom = "solid 1px black";
+        } else {
+            document.getElementById("header").style.backgroundColor = "";
+            document.getElementById("header").style.borderTop = "";
+            document.getElementById("header").style.borderBottom = "";
+        }
+    }
+</script>
 </body>
 <script src="/JS/data.js"></script>
 <script src="/JS/cart.js"></script>
 <script src="/JS/carttoggle.js"></script>
+<script src="/JS/sidecart.js"></script>
 </html>
