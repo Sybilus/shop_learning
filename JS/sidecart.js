@@ -32,7 +32,7 @@ let totalAmount = () => {
             let search = contentData.find((y) => y.id === id) || [];
             return item * search.price;
        }).reduce((x,y)=>x+y,0 );
-       return document.getElementById('price__sum').innerHTML = `Total: ${amount} $`;
+       return document.getElementById('price__sum').innerHTML = `<b>Total: ${amount} $</b>`;
     }else return;
 };
 totalAmount();

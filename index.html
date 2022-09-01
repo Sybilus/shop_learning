@@ -6,10 +6,11 @@
     <title>Document</title>
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/css/sidecart.css">
+    <link rel="stylesheet" href="/css/slider.css">
     <!-- font awesome icons -->
     <script src="https://kit.fontawesome.com/078c9ac56c.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="Whit">
 
     <div class="sidecart" id="sidecart">
         <div class="sidecart__left" onclick="carttoggle()">left side</div>
@@ -17,7 +18,7 @@
         <div class="sidecart__top">
             <div class="cart__backbtn" onclick="carttoggle()"><i class="fa-solid fa-circle-xmark" ></i></div>
 
-            <div class="cart__title">Your Cart</div>
+            <div class="cart__title"><b>Your Cart</b></div>
 
             <a class="go__cart__page" href="/html/checkout.html"><i class="fa-solid fa-cart-shopping"></i><i class="fa-solid fa-arrow-right"></i></a>
         </div>
@@ -26,8 +27,12 @@
         </div>
     </div>
 
-    <header id="header">
+    <header id="header" name="Whit">
         <div class="header__in">
+            <label class="switch" id="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
         <form action="#" class="searchform">
             <input type="search" name="searchbar" id="search" class="searchbar" placeholder="Search"></input>
             <button type="submit" id="searchbtn" class="searchbtn">
@@ -59,6 +64,7 @@
                 <input type="number" name="minimalna" id="minimalna" onchange="generateContent()" value="0" min="0"><b>min</b></input>
                 <input type="number" name="maksymalna" id="maksymalna" onchange="generateContent()" value='' max=''><b>max</b></input>
                 </div>
+                <div class="goTop" id="goTop" onclick="topFunction()"><i class="fa-solid fa-chevron-up"></i></div>
             </div>
             <div id="content" class="content">
                 
@@ -70,19 +76,7 @@
 
     
 <script>
-    window.onscroll = function () { scrollFunction() };
-
-    function scrollFunction() {
-        if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
-            document.getElementById("header").style.backgroundColor = "white";
-            document.getElementById("header").style.borderTop = "solid 1px black";
-            document.getElementById("header").style.borderBottom = "solid 1px black";
-        } else {
-            document.getElementById("header").style.backgroundColor = "";
-            document.getElementById("header").style.borderTop = "";
-            document.getElementById("header").style.borderBottom = "";
-        }
-    }
+    window.onscroll = function () { scrollFunction(), goTop()};
 </script>
 </body>
 <script src="/JS/data.js"></script>

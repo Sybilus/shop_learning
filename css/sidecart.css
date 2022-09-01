@@ -1,3 +1,8 @@
+:root{
+    --light-side: #ccd3ee;
+    --dark-side: #333;
+}
+
 .sidecart {
     position: fixed;
     height: 100%;
@@ -15,17 +20,22 @@
     visibility:visible;
 }
 .sidecart__left{
-    background-color: black;
+    background-color: var(--dark-side);
     height: 100%;
     opacity: 0.3;
 }
 .sidecart__right{
-    background-color: black;  
+    background-color: var(--dark-side);  
     height: 100%;
     overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.sidecart__right::-webkit-scrollbar {
+    display:none;
 }
 .sidecart__top{
-    color: aliceblue;
+    color: var(--light-side);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     height: 10%;
@@ -51,14 +61,14 @@
 }
 .go__cart__page > i {
     grid-row-start: 1;
-    color: aliceblue;
+    color: var(--light-side);
 }
 a:link, a:visited, a:hover, a:active{
     text-decoration: none;
 }
 .sidecart__content{
     padding: 1rem;
-    background-color: black;
+    background-color: var(--dark-side);
     height: auto;
     grid-template-columns: 1fr ;
     position: relative;
@@ -68,9 +78,9 @@ a:link, a:visited, a:hover, a:active{
     display: grid;
     justify-content: center;
     align-content: center;
-    background-color: aliceblue;
+    background-color: var(--light-side);
     margin-bottom: 1rem;
-    border: solid 1rem aliceblue;
+    border: solid 1rem var(--light-side);
 }
 .sidecart__photo{
     width: 100%;
@@ -88,7 +98,7 @@ a:link, a:visited, a:hover, a:active{
     padding-top:1px;
     background-color: rgb(255, 0, 0);
     text-align: center;
-    color: aliceblue;
+    color: white;
     cursor: pointer;
 }
 
@@ -97,7 +107,7 @@ a:link, a:visited, a:hover, a:active{
     display: grid; 
     justify-content: center;
     align-content: center;
-    background-color: aliceblue;
+    background-color: var(--light-side);
     margin: 0px 1rem 0px 1rem;
     padding: 1rem;
 }
