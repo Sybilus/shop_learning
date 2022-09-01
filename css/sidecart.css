@@ -30,6 +30,7 @@
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    border-left: solid 1px black;
 }
 .sidecart__right::-webkit-scrollbar {
     display:none;

@@ -4,9 +4,7 @@
     --light-text: #ccd3ee;
     --dark-mode:#333;
 }
-.Dark {
-    background-color: var(--dark-mode) !important;
-}
+
 
 body{
     display:block;
@@ -14,6 +12,7 @@ body{
     height: 100%;
     background-color: var(--light-mode);
     overflow: auto
+    
 }
 html{
     width: 100%;
@@ -24,6 +23,7 @@ html{
     padding: 0;
     border: 0;
     font-size: large;
+    scroll-behavior: smooth;
 }
 header{
     position: fixed;
@@ -32,6 +32,10 @@ header{
     left: 0;
     z-index: 100;
     margin: auto;
+    
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+
 }
 .header__in{
     grid-template-columns: 1fr 8fr 1fr;
@@ -40,6 +44,7 @@ header{
     max-width:1154px;
     margin: auto;
     height: auto;
+    background-color: var(--light-mode);
 }
 .searchform {
     justify-self: center;
@@ -147,6 +152,7 @@ nav{
     padding: 1rem;
     margin-right: 0;
     }
+
     .menu-title{
         position: relative;
         width: 100%;
@@ -190,14 +196,14 @@ input[type=number] {
     }
 .goTop > i{
     scale: 1.2;
-    color: var(--dark-mode);
+    color: black;
     border-radius: 100%;
-    border: solid 1px var(--dark-mode);
+    border: solid 1px black;
     padding: 0.2rem;
 }
 .goTop>i:hover {    
-    color:var(--light-text);
-    border-color:var(--light-text);
+    color:white;
+    border-color:white;
 }
 
 .content{
@@ -290,7 +296,7 @@ input[type=number] {
 
 footer {
     background-color:  var(--light-mode);
-    border-top: solid 1px var(--dark-mode);
+    border-top: solid 1px black;
     position: relative;
     width: 100%;
     margin: auto;
@@ -344,3 +350,6 @@ border-left: none;}
     margin: auto;}
 }
 
+.dark {
+    background-color: var(--dark-mode);
+}
