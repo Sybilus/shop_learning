@@ -22,7 +22,7 @@ function topFunction() {
 const switchBtn = document.getElementById("switch");
 
 switchBtn.addEventListener('change', () => {
-    const switcher = document.getElementsByClassName('Whit');
+    const switcher = document.querySelectorAll('[Whit]');
     
     Array.from(switcher).forEach(function(target) {
         if (!target.classList.contains('dark'))
