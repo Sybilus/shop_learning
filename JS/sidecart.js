@@ -13,7 +13,7 @@ let generateCart = () => {
         if (search.item === undefined)return;
         else if (search.item === 0)return;
         else return `
-        <div id:Item-${id} class="sidecart__card">
+        <div id:${id} class="sidecart__card">
         <div class="sidecart__photo"><img src="${img}" style="width:100%;"></div>
         <div class="sidecart__name">Name: ${name}</div>
         <div class="sidecart__quant">Quantity: ${search.item}</div>

@@ -1,6 +1,5 @@
 
 let content = document.getElementById('content');
-
 let basket = JSON.parse(localStorage.getItem("data")) || [];
 
 let calculation = () => {
@@ -10,12 +9,15 @@ let calculation = () => {
 
 calculation();
 
+
 let generateContent = () => {
     
+    let searchInput = document.getElementById('search');
+    searchInput.value = '';
     let maxval = document.getElementById('maksymalna').value;
     let maxymal = Math.max.apply(Math, contentData.map(m => m.price)); // bajerancka mapa 
     if (maxval === '') //szuka wszystkich priców i zwraca największy jako maxymal
-    {                    // a tutaj jak nie ma wartości to ustawia największą tą maxymal
+    {// a tutaj jak nie ma wartości to ustawia największą tą maxymal
         document.querySelector('input[name="maksymalna"]').value = maxymal;
         document.querySelector('input[name="maksymalna"]').max = maxymal;
     };
@@ -28,7 +30,7 @@ let generateContent = () => {
         if(x.price >= minval && x.price <= maxval)
         
         return `
-        <div id:Item-${id} name="karta" class="content__card">
+        <div id:Item-${id} name="karta" class="content__card ${id}">
         <img src="${img}" class="cardPhoto" ></img>
         <div class="cardName">${name}</div>
         <div class="cardDesc">${desc}</div>    
@@ -46,6 +48,8 @@ let generateContent = () => {
         </div>
         `;
     }).join(""));
+    
+
 };
 
 generateContent()
@@ -82,6 +86,24 @@ let update = (id) => {
     calculation();
 };
 
+// search bar
+
+let searchInput = document.getElementById('search');
+searchInput.addEventListener("input", e => {
+    const value = e.target.value.toLowerCase();
+
+    let usuwaZnikanie = document.getElementsByName('karta');
+    Array.from(usuwaZnikanie).forEach(function(x) {
+        x.classList.remove('nima');
+    });
+    
+    const visibl = contentData.map((x)=>{
+        let {name, id} = x;
+        let karta = document.getElementsByClassName(id);
+        if (name.includes(value)) return;
+        else karta[0].classList.add('nima');
+    })
+});
 
 
 

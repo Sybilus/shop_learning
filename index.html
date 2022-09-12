@@ -33,13 +33,13 @@
                 <input type="checkbox">
                 <span class="slider round"></span>
             </label>
-        <form action="#" class="searchform">
-            <input type="search" name="searchbar" id="search" class="searchbar" placeholder="Search"></input>
-            <button type="submit" id="searchbtn" class="searchbtn">
+        <form action="#" class="searchform" onSubmit="return false;">
+            <input type="search" name="searchbar" id="search" class="searchbar" placeholder="Search" ></input>
+            <div id="searchbtn" class="searchbtn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                 </svg>
-            </button>
+            </div>
         </form>
             
             <div id="cart" class="cart" onclick="carttoggle(), generateCart(), totalAmount()"><div id="cart__num" class="cart__num"></div>
@@ -61,8 +61,8 @@
                 <div class="menu-title"><b><h1>Preferences</h1></b></div>
                 <div class="pricing">
                     <h1>Price:</h1>
-                <input type="number" name="minimalna" id="minimalna" onchange="generateContent()" value="0" min="0"><b>min</b></input>
-                <input type="number" name="maksymalna" id="maksymalna" onchange="generateContent()" value='' max=''><b>max</b></input>
+                <input type="number" name="minimalna" id="minimalna" oninput="generateContent()" value="0" min="0"><b>min</b></input>
+                <input type="number" name="maksymalna" id="maksymalna" oninput="generateContent()" value='' max=''><b>max</b></input>
                 </div>
                 <div class="goTop" id="goTop" onclick="topFunction()"><i class="fa-solid fa-chevron-up"></i></div>
             </div>

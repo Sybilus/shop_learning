@@ -15,7 +15,7 @@ let generateEndCart = () => {
         
         if (search.item === 0) return ;
         else if (search.item === undefined) return ;
-        else return `<div class="card" id:Item-${id} >
+        else return `<div class="card" id:${id} >
                 <img src="${img}" class="photo" id="photo"></img>
                 <div class="content__right" id="content__right">
                     
